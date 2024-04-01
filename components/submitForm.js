@@ -1,7 +1,7 @@
 'use server'
-import { useDispatch } from "react-redux"
+import { UseDispatch } from "react-redux"
 export default async function submitForm(formData) {
-    const dispatch = useDispatch()
+    const dispatch = UseDispatch()
     const task = {
         name: formData.get('name'),
         description: formData.get('description')

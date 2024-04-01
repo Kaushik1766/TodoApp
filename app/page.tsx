@@ -7,7 +7,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useDispatch } from 'react-redux';
 import { addTask } from '@/Redux/features/tasks';
 
-function page() {
+function Page() {
   const dispatch = useDispatch()
 
   // fetches data from firebase and stores data to local redux store
@@ -66,4 +66,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
