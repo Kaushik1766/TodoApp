@@ -38,7 +38,7 @@ function TasksPane() {
                         }
                         // inactive tasks (tasks which are completed)
                         else {
-                            return <div className='border text-gray-300 border-gray-300 rounded-xl p-4 shadow-lg'>
+                            return <div className='border text-gray-300 border-gray-300 rounded-xl p-4 shadow-lg' key={idx}>
                                 <h1 className='text-2xl'>{item.name}</h1>
                                 <p>{item.description}</p>
                                 <div className='flex justify-between my-4 gap-2'>

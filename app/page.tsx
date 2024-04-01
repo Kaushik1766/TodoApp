@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import AddTask from '@/components/AddTask'
 import TasksPane from '@/components/TasksPane'
-import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '@/firebase/config'
 import { collection, getDocs } from 'firebase/firestore';
 import { useDispatch } from 'react-redux';
