@@ -19,8 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* redux store provider */}
       <Provider>
         <body className={inter.className}>
+          {/* navbar component */}
           <Navbar />
           {children}
         </body>

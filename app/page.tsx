@@ -12,8 +12,9 @@ function Page() {
 
   // fetches data from firebase and stores data to local redux store
   async function syncReduxFirebase() {
-    const taskRef = collection(db, 'tasks')
+    // create a query to fetch all documents in tasks collection
     const querySnapshot = await getDocs(collection(db, 'tasks'))
+    // add all docs to redux store
     querySnapshot.forEach((doc) => {
       dispatch(addTask(doc.data()))
       // console.log(doc.data());
@@ -25,6 +26,7 @@ function Page() {
     syncReduxFirebase()
   }, [])
 
+  // state to switch between add task and view all tasks
   const [currentTab, setCurrentTab] = useState(1)
   return (
     <>
@@ -43,6 +45,7 @@ function Page() {
           }}>View All Tasks</button>
         </div>
       }
+
       {/* when tab1 is selected(view all tasks) */}
       {
         currentTab == 0 || <div className='flex w-full justify-evenly my-3'>
@@ -56,9 +59,12 @@ function Page() {
         </div>
       }
 
+      {/* when tab0 is selected(add new task) */}
       {
         currentTab == 1 || <AddTask />
       }
+
+      {/* when tab1 is selected(view all tasks) */}
       {
         currentTab == 0 || <TasksPane />
       }

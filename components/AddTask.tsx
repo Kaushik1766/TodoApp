@@ -1,7 +1,6 @@
 'use client'
 import { addTask } from '@/Redux/features/tasks'
 import React from 'react'
-import submitForm from '@/components/submitForm'
 import { useDispatch } from 'react-redux'
 import { useRef } from "react";
 import addToFirebase from './addToFirebase'
@@ -12,14 +11,19 @@ function AddTask() {
     return (
         <div className='p-5'>
             <h1 className='text-3xl text-center mb-4'>Add Task</h1>
+
+            {/* task input form */}
             <form ref={ref} action={(formData) => {
-                // submit form and store it in redux
+                // submit form and store it in redux and update firebase
                 const task = {
                     name: formData.get('name'),
                     description: formData.get('description'),
                     active: true,
                 }
+                // store it in redux
                 dispatch(addTask(task))
+
+                // add data to firebase
                 addToFirebase(task)
                 // reset the form
                 ref.current?.reset();
